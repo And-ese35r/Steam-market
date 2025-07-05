@@ -1,0 +1,362 @@
+/* ГЛАВНОЕ МЕНЮ */
+:root {
+    --textcolor-disable: rgb(184, 182, 180);
+    --textcolor-allow: rgb(255, 255, 255);
+    --mussow-black: rgb(0, 0, 0);
+    --conteiners-bloks: rgb(22, 32, 45);
+    --border-block: rgb(71, 70, 81);
+    --cursor-chager: pointer;
+    --lineal-display: flex;
+    --block-display: block;
+}
+
+body {
+    height: 1300vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: "Motiva Sans", Arial, sans-serif;
+    user-select: none;
+    background: linear-gradient(180deg, rgb(24, 50, 88) 0%, rgb(14, 28, 54) 100%);
+    min-height: 100vh;
+    overflow-x:hidden;
+}
+
+p {
+    user-select: none;
+    margin-bottom: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--textcolor-disable);
+}
+
+#head-menu-conteiner {
+    width: 100vw;
+    height: 104px;
+    background: linear-gradient(90deg, rgb(33, 38, 46) 0%, rgb(15, 19, 24) 100%);
+    display: var(--lineal-display);
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+#main-head-conteiner {
+    width: 65vw;
+    height: 100%;
+    display: var(--lineal-display);
+}
+
+#main-navigation {
+    display: var(--lineal-display);
+    height: 100%;
+}
+
+#optinos-conteiner {
+    display: var(--lineal-display);
+    margin-left: auto;
+    padding-top: 6px;
+}
+
+#logo-steam {
+    height: 44px;
+    width: 178px;
+    margin-top: 30px;
+}
+
+#active {
+    color: #1882ff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.steam-logo-conteiner {
+    display: var(--lineal-display);
+    margin-right: 20px;
+}
+
+.nawigation-block {
+    height: 36px;
+    color: var(--textcolor-disable);
+    font-size: 16px;
+    cursor: var(--cursor-chager);
+    padding: 28px 8px 0px 10px;
+    letter-spacing: -0.4px;
+    text-decoration: none;
+}
+
+.links-nawigation {
+    position: absolute;
+    height: auto;
+    width: auto;
+    background-color: rgb(56, 60, 72);
+    box-shadow: 0 0 12px var(--mussow-black);
+    text-align: center;
+    line-height: 10px;
+    vertical-align: middle;
+    z-index: 1;
+    display: none;
+}
+
+.nawigations-links {
+    color: var(--textcolor-disable);
+    font-size: 13px;
+    display: block;
+    p {
+        margin: 0;
+        padding: 10px;
+    }
+}
+
+.download-conteiner {
+    height: 24px;
+    width: 142px;
+    display: var(--lineal-display);
+    align-items: center;
+    background-color: rgb(92, 126, 16);
+    cursor: var(--cursor-chager);
+    margin-right: 10px;
+}
+
+.download-image {
+    height: 18px;
+    width: 18px;
+    padding: 0 8px;
+}
+
+.download-text {
+    color: var(--textcolor-allow);
+    font-size: 11px;
+    margin: 0;
+    padding: 0px 0px 0px 5px;
+}
+
+.block-text {
+    display: var(--lineal-display);
+}
+
+.login-text {
+    color: var(--textcolor-disable);
+    font-size: 11px;
+    cursor: var(--cursor-chager);
+    padding: 0 5px;
+    margin-top: 4px;
+}
+
+.language-text {
+    color: var(--textcolor-disable);
+    font-size: 11px;
+    cursor: var(--cursor-chager);
+    padding: 0 5px;
+    margin-top: 4px;
+}
+
+.border-text {
+    color: var(--textcolor-disable);
+    font-size: 11px;
+    padding: 0 5px;
+    margin-top: 4px;
+}
+
+.nawigations-links:hover {
+    color: var(--mussow-black);
+    background-color: rgb(238, 238, 238);
+}
+
+.check-button-shop:hover ~ .links-nawigation,
+.links-nawigation:hover,
+.check-button-community:hover ~ .links-nawigation {
+    display: var(--block-display);
+}
+
+#active:hover {
+    color: rgb(61, 145, 255);
+}
+
+.nawigation-block:hover > a > p {
+    color: var(--textcolor-allow);
+}
+
+.download-conteiner:hover {
+    background-color: rgb(106, 147, 23);
+}
+
+.download-text:hover, .login-text:hover, .language-text:hover {
+    color: var(--textcolor-allow);
+}
+
+/* ИНФОРМАЦИЯ ТОРГОВАЯ ПЛОЩАДКА */
+.head-conteiner-information {
+    width: 100vw;
+    height: 121px;
+    background: linear-gradient(0deg, rgb(73, 101, 43) 0%, #68943c 100%);
+    position: relative;
+    margin-bottom: 30px;
+    z-index: 0;
+}
+
+.inside-information-conteriner {
+    width: 40vw;
+    height: 100%;
+    font-family: "Motiva Sans", Sans-serif;
+    margin-left: 260px;
+    padding-top: 26px;
+}
+
+.information-header-text {
+    color: var(--textcolor-allow);
+    padding-bottom: 4px;
+}
+
+.white-text {
+    color: var(--textcolor-allow);
+    font-size: 34px;
+    font-weight: normal;
+    margin: 0;
+    padding-left: 8px;
+
+}
+
+.lighgreen-text {
+    color: #a2c76e;
+    font-size: 14px;
+    font-family: "Motiva Sans", Sans-serif;
+    padding-left: 6px;
+    margin: 0;
+}
+
+/* ГЛАВНАЯ СТРАНИЦА */
+.subject {
+    height: 27px;
+    width: 100vw;
+    display: var(--lineal-display);
+    margin-top: 76px;
+}
+
+.information-subject {
+    height: 27px;
+    width: 42.1vw;
+    display: var(--lineal-display);
+    background-color: var(--border-block);
+    margin-left: 260px;
+    color: var(--textcolor-disable);
+    line-height: 0;
+    
+}
+
+.shop-information-name {
+    height: 27px;
+    width: 30vw;
+    background-color: var(--conteiners-bloks);
+    border: 1px var(--conteiners-bloks) solid;
+    letter-spacing: -0.8px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.shop-information-quantity {
+    height: 27px;
+    width: 6vw;
+    background-color: var(--conteiners-bloks);
+    border: 1px var(--conteiners-bloks) solid;
+    position: relative;
+    left: 0.1px;
+    letter-spacing: -0.8px;
+    font-size: 14px;
+}
+
+.shop-information-price {
+    height: 27px;
+    width: 6vw;
+    background-color: var(--conteiners-bloks);
+    border: 1px var(--conteiners-bloks) solid;
+    position: relative;
+    left: 0.4px;
+    letter-spacing: -0.8px;
+    font-size: 14px;
+}
+
+.center-conteiner {
+    width: 88px;
+    text-align: center;
+}
+
+.shop-information-name:hover, .shop-information-quantity:hover, .shop-information-price {
+    background-color: var(--conteiners-bloks);
+}
+
+/* ТОВАРЫ */
+
+.conteiner-item {
+    height: 80px;
+    width: 42.1vw;
+    background-color: var(--conteiners-bloks);
+    border: 1px var(--conteiners-bloks) solid;
+    margin-left: 260px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.shop-photo-conteiner {
+    height: 62px;
+    width: 62px;
+    background-color: #333333;
+    border: 1px #ffffff solid;
+    margin: 8px;
+    img {
+        height: 62px;
+        width: 62px;
+    }
+}
+
+.text-item-block {
+    width: 362px;
+    height: 80px;
+}
+
+.count-item-block {
+    width: 90px;
+    height: 80px;
+    text-align: center;
+    color: var(--textcolor-disable);
+    font-size: 14px;
+    p {
+        margin: 30px 0px 0px 0px;
+    }
+}
+
+.buy-item {
+    font-size: 16px;
+    margin: 8px 0 0 8px;
+    font-weight: bold;
+    color: var(--textcolor-disable)
+}
+
+.price-item-block {
+    width: 90px;
+    height: 80px;
+    text-align: center;
+}
+
+.game-name {
+    font-size: 12px;
+    margin: 4px 0 0 8px;
+    color: var(--border-block)
+}
+
+.from-text {
+    font-size: 12px;
+    margin: 16px 0 0 0;
+    color: var(--textcolor-disable)
+}
+
+.price-text {
+    font-size: 14px;
+    margin: 4px;
+    color: var(--textcolor-allow)
+}
+
+.conteiner-item:hover {
+    border: 2px rgb(40, 68, 105)solid;
+}
