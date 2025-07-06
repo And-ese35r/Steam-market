@@ -1,1 +1,1 @@
-Steam-market-copy V0.7
+Steam-market-copy V0.8
