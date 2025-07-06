@@ -46,13 +46,54 @@ for(let i = 0; i < 100; i++) {
     document.body.appendChild(outerDiv);
 }
 
-fetch('https://cors-anywhere.herokuapp.com/https://steamcommunity.com/market/search/render?count=100&query=appid:730&start=0&norender=1')
-  .then(response => response.json())
-  .then(data => {
-    data.results.forEach((item, index) => {
-      console.log(`${index + 1}: ${item.name}`);
-      console.log(`Цена: ${item.sell_price_text}`);
-      console.log(`Количество: ${item.sell_listings}`);
-      console.log('<<<---------------------------------->>>');
-    });
-})
+
+
+const GAMES = [
+  { id: 730, name: 'CS2' },
+  { id: 570, name: 'Dota 2' },
+  { id: 440, name: 'TF2' }
+];
+
+async function fetchItems(appId, count) {
+  const proxy = 'https://corsproxy.io/?';
+  const steamUrl = `https://steamcommunity.com/market/search/render?count=${count}&appid=${appId}&norender=1`;
+  
+  try {
+    const response = await fetch(proxy + encodeURIComponent(steamUrl));
+    const text = await response.text();
+    const data = JSON.parse(text);
+    return (data.results || []).map(item => ({ ...item, appid: appId }));
+  } catch (error) {
+    return [];
+  }
+}
+
+async function getLatestItems() {
+  let allItems = [];
+  let attempts = 0;
+  
+  while (allItems.length < 100 && attempts < 5) {
+    attempts++;
+    
+    for (const game of GAMES) {
+      const items = await fetchItems(game.id, 20);
+      allItems = [...allItems, ...items];
+    }
+  }
+  
+  if (allItems.length === 0) {
+    console.log('Не удалось получить предметы');
+    return;
+  }
+  
+  allItems.slice(0, 100).forEach((item, i) => {
+    const game = GAMES.find(g => g.id === item.appid)?.name || 'Unknown';
+    console.log(
+      `${i+1}. ${item.name}\n` +
+      `Игра: ${game} | Цена: ${item.sell_price_text}\n` +
+      `Фото: https://steamcommunity.com/economy/image/${item.asset_description?.icon_url || ''}\n`
+    );
+  });
+}
+
+getLatestItems().catch(e => console.log('Ошибка:', e));
