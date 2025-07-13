@@ -18,20 +18,22 @@ async function fetchItems(appId, count) {
   }
 }
 
-async function getLatestItems() {
-  let allItems = [];
-  let attempts = 0;
-  
-  while (allItems.length < 100 && attempts < 5) {
-    attempts++;
+async function gettems() {
+  try {
+    let allItems = [];
     
     for (const game of GAMES) {
-      const items = await fetchItems(game.id, 20);
-      allItems = [...allItems, ...items];
+      const items = await fetchItems(game.id, 100).catch(() => []);
+      if (items?.length) {
+        allItems = [...allItems, ...items];
+        if (allItems.length >= 100) break;
+      }
     }
+    
+    return allItems.slice(0, 100);
+  } catch (error) {
+    return [];
   }
-  
-  return allItems.slice(0, 100);
 }
 
 function createItemElement(item, container) {
@@ -93,21 +95,33 @@ function createItemElement(item, container) {
   container.appendChild(itemLink);
 }
 
-async function loadItemsSequentially() {
+async function getItems() {
+  const items = [];
+  
+  for (const game of GAMES) {
+    const gameItems = await fetchItems(game.id, 100).catch(() => []);
+    items.push(...gameItems);
+    if (items.length >= 100) break;
+  }
+  
+  return items.slice(0, 100);
+}
+
+async function showItems() {
   const container = document.createElement('div');
   document.body.appendChild(container);
   
-  const items = await getLatestItems();
+  const items = await getItems();
   
-  if (items.length === 0) {
-    console.log('Не удалось получить предметы');
+  if (!items.length) {
+    container.textContent = 'Не удалось загрузить предметы';
     return;
   }
 
-  for (const item of items) {
-    createItemElement(item, container);
-  }
+  items.forEach(item => createItemElement(item, container));
 }
+
+showItems()
 
 loadItemsSequentially().catch(e => console.log('Ошибка:', e));
 
