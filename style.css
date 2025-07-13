@@ -11,7 +11,7 @@
 }
 
 body {
-    height: 1300vh;
+    height: auto;
     width: 100vw;
     margin: 0;
     padding: 0;
@@ -288,31 +288,37 @@ a {
 
 /* ТОВАРЫ */
 
-.conteiner-item {
+.container-item {
     height: 80px;
-    width: 42.1vw;
+    width: 42vw;
+    max-width: 90%;
     background-color: var(--conteiners-bloks);
-    border: 1px var(--conteiners-bloks) solid;
+    border: 1px solid var(--conteiners-bloks);
     margin-left: 260px;
     margin-top: 10px;
     display: flex;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-.shop-photo-conteiner {
+.shop-photo-container {
     height: 62px;
     width: 62px;
     background-color: #333333;
-    border: 1px #ffffff solid;
+    border: 1px solid #ffffff;
     margin: 8px;
-    img {
-        height: 62px;
-        width: 62px;
-    }
+}
+
+.shop-photo-container img {
+    height: 62px;
+    width: 62px;
+    float: left;
 }
 
 .text-item-block {
     width: 362px;
     height: 80px;
+    overflow: hidden;
 }
 
 .count-item-block {
@@ -321,42 +327,94 @@ a {
     text-align: center;
     color: var(--textcolor-disable);
     font-size: 14px;
-    p {
-        margin: 30px 0px 0px 0px;
-    }
+    flex-shrink: 0;
+}
+
+
+.count-item-block p {
+    margin: 30px 0 0 0;
 }
 
 .buy-item {
     font-size: 16px;
     margin: 8px 0 0 8px;
     font-weight: bold;
-    color: var(--textcolor-disable)
+    color: var(--textcolor-disable);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .price-item-block {
     width: 90px;
     height: 80px;
+    min-width: 90px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 .game-name {
     font-size: 12px;
     margin: 4px 0 0 8px;
-    color: var(--border-block)
+    color: var(--border-block);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .from-text {
     font-size: 12px;
     margin: 16px 0 0 0;
-    color: var(--textcolor-disable)
+    color: var(--textcolor-disable);
 }
 
 .price-text {
     font-size: 14px;
     margin: 4px;
-    color: var(--textcolor-allow)
+    color: var(--textcolor-allow);
 }
 
 .conteiner-item:hover {
-    border: 2px rgb(40, 68, 105)solid;
+    border: 2px solid rgb(40, 68, 105);
+}
+
+.container-item {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+/*НИЖНЯЯ ЧАСТЬ*/
+
+.footer {
+    height: 6vh;
+    width: 66vw;
+    background-color: rgb(16, 24, 34);
+    padding: 6vh 17vw 6vh 17vw;
+    margin-top: 100px;
+    display: flex;
+}
+
+.steam-reglament {
+    margin: 5px;
+    color: var(--textcolor-disable);
+    font-size: 12px;
+    a {
+        font-weight: bold;
+    }
+    position: relative;
+    bottom: 18px;
+}
+
+.privacy-links {
+    display: flex;
+    p {
+        margin: 10px 2px 2px 2px;
+    }
+    a {
+        margin: 10px 3px 3px 3px;
+    }
 }
